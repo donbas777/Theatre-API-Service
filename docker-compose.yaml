@@ -1,5 +1,5 @@
 services:
-  cinema:
+  theatre:
     build:
       context: .
     env_file:
@@ -7,10 +7,9 @@ services:
     ports:
       - "8001:8000"
     volumes:
-      - ./:/app
-    command: >
-      sh -c "python manage.py migrate &&
-            python manage.py runserver 0.0.0.0.8000"
+      - .:/app
+    command: sh -c "python manage.py migrate &&
+                  python manage.py runserver 0.0.0.0:8000"
     depends_on:
       - db
 
@@ -22,10 +21,3 @@ services:
       - .env
     ports:
       - "5432:5432"
-    volumes:
-      - my_db:$PGDATA
-
-
-volumes:
-  my_db:
-  my_media:
