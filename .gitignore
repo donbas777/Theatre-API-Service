@@ -1,5 +1,5 @@
 .idea
 venv
 user/migrations/__pycache__/
-theatre/migrations/__pycache__/
+**/__pycache__/
 .env
